@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: rgb(243, 172, 109);
+  width: 100vw;
+  height: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.HFcontainer {
+  width: 100vw;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.Hcontainer {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Planebox {
+  width: 250px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fa-plane-departure {
+  font-size: 50px;
+  color: white;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.planename {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 900;
+  color: white;
+}
+.Buttonbox {
+  width: 700px;
+  height: 100px;
+  background-color: beige;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.buttoncover {
+  width: 150px;
+  height: 80px;
+  background-color: rgb(92, 157, 157);
+}
+.Fcontainer {
+  width: 75vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Inputtext {
+  width: 80vw;
+  height: 70px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 25px;
+}
+.Inputtext:hover {
+  box-shadow: 5px 2px 20px rgb(239, 232, 225);
+}
+.Inputbutton {
+  width: 100px;
+  height: 70px;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: 800;
+  background-color: rgb(234, 230, 230);
+}
+.Inputbuttonbox {
+  width: 10vw;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Inputbutton:active {
+  background-color: rgb(247, 190, 140);
+}
+.Inputbutton:hover {
+  background-color: rgb(185, 185, 185);
+
+  box-shadow: 5px 2px 20px rgba(227, 223, 219, 0.765);
+}
+main {
+  margin-top: 250px;
+  width: 100vw;
+  min-height: 90vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Mapcontainer {
+  width: 80vw;
+  height: 80vh;
+  background-color: azure;
+}
+footer {
+  width: 100vw;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(243, 172, 109);
+}
+address {
+  width: 80vw;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+}
