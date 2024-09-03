@@ -51,26 +51,5 @@
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
-    <script>
-      $.ajax({
-        type: "POST",
-        url: "https://api.kakaobrain.com/v1/inference/kogpt/generation",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `KakaoAK ${REST_API_KEY}`, // 백틱(``)으로 감싸야 합니다
-        },
-        data: JSON.stringify({
-          prompt: "오늘 아침 하늘은 곧 비가 올 것 같아서",
-          max_tokens: 120,
-          n: 2,
-        }),
-        success: function (response) {
-          console.log(response);
-        },
-        error: function (xhr, status, error) {
-          console.error("Error:", status, error);
-        },
-      });
-    </script>
   </body>
 </html>
