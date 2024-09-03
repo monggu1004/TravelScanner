@@ -39,6 +39,11 @@ header {
   margin-right: 20px;
   margin-left: 20px;
 }
+button {
+  background-color: black;
+  width: 30px;
+  height: 30px;
+}
 .planename {
   display: flex;
   justify-content: center;
@@ -67,8 +72,13 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+.textbox {
+  display: flex;
+  width: 75vw;
+  justify-content: space-between;
+}
 .Inputtext {
-  width: 80vw;
+  width: 65vw;
   height: 70px;
   border: none;
   border-radius: 10px;
