@@ -1,12 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-}
 /* body {
   font-family: "Nanum Gothic Coding", monospace;
   font-weight: 900;
   font-style: normal;
 } */
+* {
+  margin: 0;
+  padding: 0;
+}
 header {
   background-color: rgb(243, 172, 109);
   width: 100vw;
@@ -45,6 +45,7 @@ header {
   font-size: 25px;
   color: white;
   margin-right: 20px;
+  text-decoration: none;
 }
 button {
   background-color: black;
@@ -58,15 +59,31 @@ button {
   font-size: 30px;
   font-weight: 900;
   color: white;
+  text-decoration: none;
 }
 .Buttonbox {
-  width: 15vw;
+  width: 11vw;
   height: 5vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-top: 2vw;
   margin-right: 4vw;
+}
+.fa-heart,
+.fa-bars,
+.fa-earth-asia {
+  color: white;
+}
+.fa-heart:hover,
+.fa-bars:hover,
+.fa-earth-asia:hover {
+  color: rgba(214, 214, 214, 0.827);
+}
+.fa-heart:active,
+.fa-bars:active,
+.fa-earth-asia:active {
+  color: rgba(255, 214, 181, 0.744);
 }
 .buttoncover {
   width: 70px;
@@ -76,16 +93,8 @@ button {
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  text-decoration: none;
 }
-.fa-heart,
-.fa-bars,
-.fa-earth-asia {
-  color: white;
-}
-.buttoncover:hover {
-  background-color: rgba(214, 214, 214, 0.6);
-}
+
 .Fcontainer {
   width: 75vw;
   height: 100px;
@@ -150,6 +159,17 @@ main {
   background-color: azure;
   display: flex;
   flex-flow: wrap;
+}
+.wishnamebox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.wishname {
+  font-size: 40px;
+  font-weight: 900;
+  background-color: aquamarine;
 }
 footer {
   width: 100vw;
