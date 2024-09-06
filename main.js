@@ -16,6 +16,9 @@ async function api() {
   console.log(data);
   const date2 = await data.json();
   console.log(date2);
+  const data3 = date2.response.body.items.item[0];
+  console.log(data3);
 }
+
 api();
 bars.addEventListener("click", openmenu);
