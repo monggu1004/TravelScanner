@@ -83,6 +83,16 @@ button {
 .fa-earth-asia {
   color: white;
 }
+.menubox {
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+  z-index: 1000;
+  position: fixed;
+}
+.hidden {
+  display: none;
+}
 .buttoncover:hover {
   background-color: rgba(214, 214, 214, 0.6);
 }

@@ -1,6 +1,12 @@
-const form = document.querySelector("form");
-const input = document.querySelector("input");
+const bars = document.querySelector(".fa-bars");
+const header = document.querySelector("header");
+const menubox = document.createElement("div");
+menubox.classList.add("menubox");
+header.appendChild(menubox);
+menubox.classList.add("hidden");
 
-form.addEventListener("submit", (e) => {
-  e.prevent.Default();
-});
+function openmenu() {
+  menubox.classList.toggle("hidden");
+}
+
+bars.addEventListener("click", openmenu);
