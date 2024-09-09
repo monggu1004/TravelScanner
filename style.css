@@ -159,7 +159,18 @@ main {
   height: 80vh;
   background-color: azure;
   display: flex;
-  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  background-color: blue;
+  width: 80vw;
+  height: 70vh;
+}
+.dataBox {
+  background-color: aquamarine;
+  width: 450px;
+  height: 300px;
 }
 footer {
   width: 100vw;

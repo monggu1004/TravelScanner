@@ -8,17 +8,30 @@ menubox.classList.add("hidden");
 function openmenu() {
   menubox.classList.toggle("hidden");
 }
+function runOk(position) {
+  console.log(position);
+  const lati = position.coords.latitude;
+  const longi = position.coords.longitude;
+  const myapi = "0cb7bf6dd6a2cd3aa583cb6e16fd0525";
 
-async function api() {
-  const data = await fetch(
-    "https://apis.data.go.kr/B551011/KorService1/locationBasedList1?serviceKey=2IH5PyYaWE%2FpKFRNC0FqAUfRHJj091EvFJGNV7wdtf35vQq0QILwUk7jFssn%2BR0DaSnXlMC55OE8mZtbRorVSA%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=A&mapX=126.981611&mapY=37.568477&radius=1000&contentTypeId=15"
-  );
-  console.log(data);
-  const date2 = await data.json();
-  console.log(date2);
-  const data3 = date2.response.body.items.item[0];
-  console.log(data3);
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=lati&lon=longi&appid=myapi`;
+  console.log(url);
 }
+function runError() {
+  alert("에러");
+}
+navigator.geolocation.getCurrentPosition(runOk, runError);
 
-api();
 bars.addEventListener("click", openmenu);
+
+// async function api() {
+//   const data = await fetch(
+//   );
+//   console.log(data);
+//   const date2 = await data.json();
+//   console.log(date2);
+//   const data3 = date2.response.body.items.item[0];
+//   console.log(data3);
+// }
+
+// api();

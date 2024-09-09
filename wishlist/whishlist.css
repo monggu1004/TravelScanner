@@ -160,6 +160,7 @@ main {
   display: flex;
   flex-flow: wrap;
 }
+
 .wishnamebox {
   display: flex;
   flex-direction: column;
