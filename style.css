@@ -159,6 +159,7 @@ main {
   height: 80vh;
   background-color: azure;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
