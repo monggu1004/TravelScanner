@@ -46,11 +46,7 @@ header {
   color: white;
   margin-right: 20px;
 }
-button {
-  background-color: black;
-  width: 30px;
-  height: 30px;
-}
+
 .planename {
   display: flex;
   justify-content: center;
@@ -156,22 +152,76 @@ main {
 }
 .Mapcontainer {
   width: 90vw;
-  height: 80vh;
+  height: 90vh;
   background-color: azure;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+.options {
+  width: 75vw;
+  height: 15vh;
+  background-color: brown;
+  z-index: 1000;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.option {
+  background-color: aquamarine;
+  width: 40vw;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  gap: 0px 15px;
+}
+.buton,
+.Wbuton,
+.Cbuton {
+  background-color: rgb(255, 255, 255);
+  height: 40px;
+  border: solid rgb(182, 182, 182);
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buton:hover,
+.Wbuton:hover,
+.Cbuton:hover {
+  border-color: rgb(87, 86, 86);
+}
+.dataBox1 {
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+}
+.dataBox2 {
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+}
+.clickButton {
+  background-color: black;
+  color: aliceblue;
+}
 .box {
   background-color: blue;
-  width: 80vw;
-  height: 70vh;
+  width: 75vw;
+  height: 80vh;
 }
 .dataBox {
   background-color: aquamarine;
   width: 450px;
   height: 300px;
+}
+.newBox {
+  width: 100px;
+  height: 100px;
+  background-color: beige;
 }
 footer {
   width: 100vw;
