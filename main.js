@@ -10,8 +10,11 @@ function openmenu() {
   menubox.classList.toggle("hidden");
 }
 
-const Wbuton = document.querySelector(".Wbuton");
+const Abuton = document.querySelector(".Abuton");
+const Bbuton = document.querySelector(".Bbuton");
 const Cbuton = document.querySelector(".Cbuton");
+const box = document.querySelector(".box");
+
 const dataBox = document.querySelector(".dataBox");
 const API_KEY = "0cb7bf6dd6a2cd3aa583cb6e16fd0525";
 async function runOk(position) {
@@ -19,50 +22,81 @@ async function runOk(position) {
   const longi = position.coords.longitude;
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${API_KEY}`;
   const response = await fetch(url).then((response) => response.json());
+  console.log(response);
 
-  Wbuton.addEventListener("click", showWeather);
-  Cbuton.addEventListener("click", showCity);
-  const box = document.querySelector(".box");
-
-  function showCity(event) {
-    event.preventDefault();
-    const kid = box.firstElementChild;
-    Wbuton.disabled = false;
-
-    Wbuton.classList.remove("clickButton");
-    Cbuton.classList.add("clickButton");
-    const dataBox1 = document.createElement("div");
-    dataBox1.classList.add("dataBox1");
-    box.appendChild.dataBox1;
-    dataBox1.innerText = response.name;
-
-    if (kid) {
-      console.log(kid);
-      box.replaceChild(dataBox1, kid);
-      Cbuton.disabled = true;
-    } else {
-      box.appendChild(dataBox1);
-      Cbuton.disabled = true;
-    }
-  }
+  Abuton.addEventListener("click", showWeather);
+  Bbuton.addEventListener("click", showCity);
+  Cbuton.addEventListener("click", showC);
   function showWeather(event) {
     event.preventDefault();
-    const kid = box.firstElementChild;
+    Abuton.disabled = true;
     Cbuton.disabled = false;
+    Bbuton.disabled = false;
+    const kid = box.firstElementChild;
 
-    Wbuton.classList.add("clickButton");
+    Abuton.classList.add("clickButton");
     Cbuton.classList.remove("clickButton");
-    const dataBox2 = document.createElement("div");
-    dataBox2.classList.add("dataBox2");
-    dataBox2.innerText = response.weather[0].main;
+    Bbuton.classList.remove("clickButton");
+    const dataBox1 = document.createElement("div");
+    dataBox1.classList.add("dataBox1");
+    dataBox1.innerText = response.weather[0].main;
 
     console.log(kid);
     if (kid) {
+      box.replaceChild(dataBox1, kid);
+      Abuton.disabled = true;
+    } else {
+      box.appendChild(dataBox1);
+      Abuton.disabled = true;
+    }
+  }
+  function showCity(event) {
+    event.preventDefault();
+    const kid = box.firstElementChild;
+    Bbuton.disabled = true;
+    Cbuton.disabled = false;
+    Abuton.disabled = false;
+
+    Abuton.classList.remove("clickButton");
+    Cbuton.classList.remove("clickButton");
+    Bbuton.classList.add("clickButton");
+    const dataBox2 = document.createElement("div");
+    dataBox2.classList.add("dataBox2");
+    box.appendChild.dataBox2;
+    dataBox2.innerText = response.name;
+
+    if (kid) {
+      console.log(kid);
       box.replaceChild(dataBox2, kid);
-      Wbuton.disabled = true;
+      Bbuton.disabled = true;
     } else {
       box.appendChild(dataBox2);
-      Wbuton.disabled = true;
+      Bbuton.disabled = true;
+    }
+  }
+
+  function showC(event) {
+    event.preventDefault();
+    const kid = box.firstElementChild;
+    Cbuton.disabled = true;
+    Bbuton.disabled = false;
+    Abuton.disabled = false;
+
+    Abuton.classList.remove("clickButton");
+    Bbuton.classList.remove("clickButton");
+    Cbuton.classList.add("clickButton");
+    const dataBox3 = document.createElement("div");
+    dataBox3.classList.add("dataBox3");
+    box.appendChild.dataBox3;
+    dataBox3.innerText = response.weather[0].description;
+
+    if (kid) {
+      console.log(kid);
+      box.replaceChild(dataBox3, kid);
+      Cbuton.disabled = true;
+    } else {
+      box.appendChild(dataBox3);
+      Cbuton.disabled = true;
     }
   }
 }

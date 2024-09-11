@@ -177,7 +177,8 @@ main {
   gap: 0px 15px;
 }
 .buton,
-.Wbuton,
+.Abuton,
+.Bbuton,
 .Cbuton {
   background-color: rgb(255, 255, 255);
   height: 40px;
@@ -190,20 +191,19 @@ main {
   align-items: center;
 }
 .buton:hover,
-.Wbuton:hover,
+.Abuton:hover,
+.Bbuton:hover,
 .Cbuton:hover {
   border-color: rgb(87, 86, 86);
 }
-.dataBox1 {
+.dataBox1,
+.dataBox2,
+.dataBox3 {
   width: 100px;
   height: 100px;
   background-color: blueviolet;
 }
-.dataBox2 {
-  width: 100px;
-  height: 100px;
-  background-color: blueviolet;
-}
+
 .clickButton {
   background-color: black;
   color: aliceblue;
