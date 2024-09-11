@@ -27,6 +27,7 @@ async function runOk(position) {
   Abuton.addEventListener("click", showWeather);
   Bbuton.addEventListener("click", showCity);
   Cbuton.addEventListener("click", showC);
+
   function showWeather(event) {
     event.preventDefault();
     Abuton.disabled = true;
@@ -49,6 +50,11 @@ async function runOk(position) {
       box.appendChild(dataBox1);
       Abuton.disabled = true;
     }
+
+    listbox = document.createElement("div");
+    listbox.classList.add("subcover");
+    box.appendChild(listbox);
+    addbox();
   }
   function showCity(event) {
     event.preventDefault();
@@ -74,7 +80,6 @@ async function runOk(position) {
       Bbuton.disabled = true;
     }
   }
-
   function showC(event) {
     event.preventDefault();
     const kid = box.firstElementChild;
@@ -98,6 +103,13 @@ async function runOk(position) {
       box.appendChild(dataBox3);
       Cbuton.disabled = true;
     }
+  }
+
+  function addbox() {
+    const subcover = document.querySelector(".subcover");
+    subcover.classList.add("subcover");
+    box.appendChild(subcover);
+    subcover.innerText = "sdf";
   }
 }
 function runError() {

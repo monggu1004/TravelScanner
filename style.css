@@ -199,9 +199,9 @@ main {
 .dataBox1,
 .dataBox2,
 .dataBox3 {
-  width: 100px;
-  height: 100px;
-  background-color: blueviolet;
+  width: 75vw;
+  min-height: 75vh;
+  background-color: aqua;
 }
 
 .clickButton {
@@ -212,6 +212,11 @@ main {
   background-color: blue;
   width: 75vw;
   height: 80vh;
+}
+.subcover {
+  width: 33.3%;
+  height: 100px;
+  background-color: beige;
 }
 .dataBox {
   background-color: aquamarine;
