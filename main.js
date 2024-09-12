@@ -1,10 +1,19 @@
 const bars = document.querySelector(".fa-bars");
 const header = document.querySelector("header");
-const menubox = document.createElement("div");
 const boton = document.querySelector("boton");
+
+const menubox = document.createElement("div");
 menubox.classList.add("menubox");
 header.appendChild(menubox);
 menubox.classList.add("hidden");
+
+const su = `https://api.odcloud.kr/api/15049995/v1/uddi:f2e87fc5-9d8d-4f22-adfc-ae9993d1bbe5?page=1&perPage=10&serviceKey=1qSXQvr3pLdkKVxILFAgfY8T%2BSxI5vYF%2Frkzgb%2BIxYtxl5wbl99nw%2F4dsC8%2BVQOurBn9EuV%2Fee87RwpiwJcLIg%3D%3D`;
+
+async function h() {
+  const gg = await fetch(su).then((response) => response.json());
+  console.log(gg);
+}
+h();
 
 function openmenu() {
   menubox.classList.toggle("hidden");
@@ -14,9 +23,9 @@ const Abuton = document.querySelector(".Abuton");
 const Bbuton = document.querySelector(".Bbuton");
 const Cbuton = document.querySelector(".Cbuton");
 const box = document.querySelector(".box");
-
 const dataBox = document.querySelector(".dataBox");
 const API_KEY = "0cb7bf6dd6a2cd3aa583cb6e16fd0525";
+
 async function runOk(position) {
   const lati = position.coords.latitude;
   const longi = position.coords.longitude;
