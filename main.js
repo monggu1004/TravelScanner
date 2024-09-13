@@ -16,13 +16,23 @@ const Bbuton = document.querySelector(".Bbuton");
 const Cbuton = document.querySelector(".Cbuton");
 const box = document.querySelector(".box");
 const API_KEY = "0cb7bf6dd6a2cd3aa583cb6e16fd0525";
-
+const serviceKey =
+  "1qSXQvr3pLdkKVxILFAgfY8T%2BSxI5vYF%2Frkzgb%2BIxYtxl5wbl99nw%2F4dsC8%2BVQOurBn9EuV%2Fee87RwpiwJcLIg%3D%3D";
 async function runOk(position) {
   const lati = position.coords.latitude;
   const longi = position.coords.longitude;
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${API_KEY}`;
-  const response = await fetch(url).then((response) => response.json());
-  console.log(response);
+  // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${API_KEY}`;
+  // const response = await fetch(url).then((response) => response.json());
+  // console.log(response);
+
+  const turl = `https://apis.data.go.kr/B551011/KorService1/categoryCode1?numOfRows=5&pageNo=1&MobileOS=AND&MobileApp=AppTest&contentTypeId=12&_type=json&serviceKey=${serviceKey}`;
+  async function tt() {
+    const tlist = await fetch(turl);
+    const ttlist = await tlist.json();
+    console.log(tlist);
+    console.log(ttlist);
+  }
+  tt();
 
   Abuton.addEventListener("click", showWeather);
   Bbuton.addEventListener("click", showCity);

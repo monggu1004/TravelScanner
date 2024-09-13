@@ -207,7 +207,11 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
-
+.mapdesign {
+  width: 500px;
+  height: 400px;
+  background-color: bisque;
+}
 .clickButton {
   background-color: black;
   color: aliceblue;
