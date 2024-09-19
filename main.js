@@ -1,14 +1,18 @@
 const bars = document.querySelector(".fa-bars");
 const header = document.querySelector("header");
 const boton = document.querySelector("boton");
+const body = document.querySelector("body");
 
 const menubox = document.createElement("div");
+body.appendChild(menubox);
 menubox.classList.add("menubox");
-header.appendChild(menubox);
-menubox.classList.add("hidden");
-
+// menubox.classList.add("hidden");
 function openmenu() {
-  menubox.classList.toggle("hidden");
+  if (menubox.classList.contains("hidden")) {
+    menubox.classList.remove("hidden");
+  } else {
+    menubox.classList.add("hidden");
+  }
 }
 
 const Abuton = document.querySelector(".Abuton");
@@ -25,21 +29,21 @@ async function runOk(position) {
   const longi = position.coords.longitude;
   console.log(lati);
   console.log(longi);
+  const weatherApiKey = "0cb7bf6dd6a2cd3aa583cb6e16fd0525";
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${weatherApiKey}`;
+  async function weatherApi() {
+    const weatherResponse = await fetch(weatherUrl);
+    console.log(weatherResponse);
+    const weatherData = await weatherResponse.json();
+    console.log(weatherData);
+  }
+  weatherApi();
 
   Abuton.addEventListener("click", showWeather);
   Bbuton.addEventListener("click", showCity);
   Cbuton.addEventListener("click", showC);
   const dataBox1 = document.createElement("div");
   dataBox1.classList.add("dataBox1");
-
-  function makelistbox(ii) {
-    for (let i = 0; i < ii; i++) {
-      const listBox = document.createElement("div");
-      listBox.classList.add("listcover");
-      listBox.innerText = "gfh";
-      dataBox1.appendChild(listBox);
-    }
-  }
 
   function showWeather(event) {
     event.preventDefault();
@@ -60,16 +64,29 @@ async function runOk(position) {
       box.appendChild(dataBox1);
       Abuton.disabled = true;
     }
-    async function rr() {
-      const dd = await fetch(tourList);
-      console.log(dd);
-      const gg = await dd.json();
-      console.log(gg);
-      const ii = gg.response.body.items.length;
-      console.log(ii);
-      makelistbox(ii);
+
+    async function insertApiData() {
+      const tourResponse = await fetch(tourList);
+      console.log(tourResponse);
+      const tourData = await tourResponse.json();
+      console.log(tourData);
+      const tourLength = tourData.response.body.items.length;
+      console.log(tourLength);
+      const tourName = tourData.response.body.items;
+      console.log(tourName);
+      function makeListBox() {
+        for (let i = 0; i < tourLength; i++) {
+          const listBox = document.createElement("div");
+          listBox.classList.add("listcover");
+          const indexTourName = tourName[i].districtName;
+          console.log(indexTourName);
+          listBox.innerText = indexTourName;
+          dataBox1.appendChild(listBox);
+        }
+      }
+      makeListBox(tourLength);
     }
-    rr();
+    insertApiData();
   }
 
   function showCity(event) {

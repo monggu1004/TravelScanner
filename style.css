@@ -9,8 +9,8 @@
 } */
 header {
   background-color: rgb(243, 172, 109);
-  width: 100vw;
-  height: 30vh;
+  width: 1920px;
+  height: 150px;
   position: fixed;
   top: 0;
   left: 0;
@@ -18,16 +18,16 @@ header {
 }
 
 .HFcontainer {
-  width: 100vw;
-  height: 30vh;
+  width: 1920px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 .Hcontainer {
-  width: 100vw;
-  height: 10vh;
+  width: 1920px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,7 +84,9 @@ header {
   height: 200px;
   background-color: aqua;
   z-index: 1000;
-  position: fixed;
+  position: relative;
+  left: 500px;
+  bottom: 500px;
 }
 .hidden {
   display: none;
@@ -93,8 +95,8 @@ header {
   background-color: rgba(214, 214, 214, 0.6);
 }
 .Fcontainer {
-  width: 75vw;
-  height: 100px;
+  width: 1920px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
