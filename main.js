@@ -15,24 +15,16 @@ const Abuton = document.querySelector(".Abuton");
 const Bbuton = document.querySelector(".Bbuton");
 const Cbuton = document.querySelector(".Cbuton");
 const box = document.querySelector(".box");
-const API_KEY = "0cb7bf6dd6a2cd3aa583cb6e16fd0525";
-const serviceKey =
+const API_KEY =
   "1qSXQvr3pLdkKVxILFAgfY8T%2BSxI5vYF%2Frkzgb%2BIxYtxl5wbl99nw%2F4dsC8%2BVQOurBn9EuV%2Fee87RwpiwJcLIg%3D%3D";
+console.log(API_KEY);
+const tourList = `http://apis.data.go.kr/B552584/UlfptcaAlarmInqireSvc/getUlfptcaAlarmInfo?year=2020&pageNo=1&numOfRows=12&returnType=json&serviceKey=${API_KEY}`;
+
 async function runOk(position) {
   const lati = position.coords.latitude;
   const longi = position.coords.longitude;
-  // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${API_KEY}`;
-  // const response = await fetch(url).then((response) => response.json());
-  // console.log(response);
-
-  const turl = `https://apis.data.go.kr/B551011/KorService1/categoryCode1?numOfRows=5&pageNo=1&MobileOS=AND&MobileApp=AppTest&contentTypeId=12&_type=json&serviceKey=${serviceKey}`;
-  async function tt() {
-    const tlist = await fetch(turl);
-    const ttlist = await tlist.json();
-    console.log(tlist);
-    console.log(ttlist);
-  }
-  tt();
+  console.log(lati);
+  console.log(longi);
 
   Abuton.addEventListener("click", showWeather);
   Bbuton.addEventListener("click", showCity);
@@ -40,8 +32,8 @@ async function runOk(position) {
   const dataBox1 = document.createElement("div");
   dataBox1.classList.add("dataBox1");
 
-  function makelistbox() {
-    for (let i = 0; i < 35; i++) {
+  function makelistbox(ii) {
+    for (let i = 0; i < ii; i++) {
       const listBox = document.createElement("div");
       listBox.classList.add("listcover");
       listBox.innerText = "gfh";
@@ -68,9 +60,18 @@ async function runOk(position) {
       box.appendChild(dataBox1);
       Abuton.disabled = true;
     }
-
-    makelistbox();
+    async function rr() {
+      const dd = await fetch(tourList);
+      console.log(dd);
+      const gg = await dd.json();
+      console.log(gg);
+      const ii = gg.response.body.items.length;
+      console.log(ii);
+      makelistbox(ii);
+    }
+    rr();
   }
+
   function showCity(event) {
     event.preventDefault();
     const kid = box.firstElementChild;
