@@ -21,8 +21,6 @@ const Cbuton = document.querySelector(".Cbuton");
 const box = document.querySelector(".box");
 const API_KEY =
   "1qSXQvr3pLdkKVxILFAgfY8T%2BSxI5vYF%2Frkzgb%2BIxYtxl5wbl99nw%2F4dsC8%2BVQOurBn9EuV%2Fee87RwpiwJcLIg%3D%3D";
-console.log(API_KEY);
-const tourList = `http://apis.data.go.kr/B552584/UlfptcaAlarmInqireSvc/getUlfptcaAlarmInfo?year=2020&pageNo=1&numOfRows=12&returnType=json&serviceKey=${API_KEY}`;
 
 async function runOk(position) {
   const lati = position.coords.latitude;
@@ -39,13 +37,21 @@ async function runOk(position) {
   }
   weatherApi();
 
-  Abuton.addEventListener("click", showWeather);
+  Abuton.addEventListener("click", tourArea);
   Bbuton.addEventListener("click", showCity);
   Cbuton.addEventListener("click", showC);
   const dataBox1 = document.createElement("div");
   dataBox1.classList.add("dataBox1");
+  const areaApi = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst
+?serviceKey=${API_KEY}&numOfRows=10&pageNo=1
+&base_date=20240920&base_time=0600&nx=55&ny=127
+`;
+  const tourResponse = await fetch(areaApi);
+  console.log(tourResponse);
+  const tourData = await tourResponse.json();
+  console.log(tourData);
 
-  function showWeather(event) {
+  function tourArea(event) {
     event.preventDefault();
     Abuton.disabled = true;
     Cbuton.disabled = false;
@@ -66,25 +72,17 @@ async function runOk(position) {
     }
 
     async function insertApiData() {
-      const tourResponse = await fetch(tourList);
-      console.log(tourResponse);
-      const tourData = await tourResponse.json();
-      console.log(tourData);
-      const tourLength = tourData.response.body.items.length;
-      console.log(tourLength);
-      const tourName = tourData.response.body.items;
-      console.log(tourName);
-      function makeListBox() {
-        for (let i = 0; i < tourLength; i++) {
-          const listBox = document.createElement("div");
-          listBox.classList.add("listcover");
-          const indexTourName = tourName[i].districtName;
-          console.log(indexTourName);
-          listBox.innerText = indexTourName;
-          dataBox1.appendChild(listBox);
-        }
-      }
-      makeListBox(tourLength);
+      // function makeListBox() {
+      //   for (let i = 0; i < tourLength; i++) {
+      //     const listBox = document.createElement("div");
+      //     listBox.classList.add("listcover");
+      //     const indexTourName = tourName[i].districtName;
+      //     console.log(indexTourName);
+      //     listBox.innerText = indexTourName;
+      //     dataBox1.appendChild(listBox);
+      //   }
+      // }
+      // makeListBox(tourLength);
     }
     insertApiData();
   }
